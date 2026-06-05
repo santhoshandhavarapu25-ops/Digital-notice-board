@@ -4,6 +4,12 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 const ThemeContext = createContext(null)
 
 function readStoredTheme() {
+  try {
+    const stored = localStorage.getItem('dnb-theme')
+    if (stored === 'dark' || stored === 'light') return stored
+  } catch (e) {
+    // ignore
+  }
   return 'light'
 }
 
@@ -11,16 +17,26 @@ export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(readStoredTheme)
 
   useEffect(() => {
-    document.documentElement.classList.remove('dark')
-    localStorage.setItem('dnb-theme', 'light')
+    // ensure html element has the proper dark class
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark')
+      try {
+        localStorage.setItem('dnb-theme', 'dark')
+      } catch (e) {}
+    } else {
+      document.documentElement.classList.remove('dark')
+      try {
+        localStorage.setItem('dnb-theme', 'light')
+      } catch (e) {}
+    }
   }, [theme])
 
   const value = useMemo(
     () => ({
       theme,
-      isDark: false,
+      isDark: theme === 'dark',
       toggleTheme() {
-        setTheme('light')
+        setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
       },
       setTheme,
     }),

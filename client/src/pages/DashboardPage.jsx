@@ -819,7 +819,7 @@ export default function DashboardPage() {
                       className={`rounded-3xl border p-5 text-left shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg ${activeCategoryName === category.name ? 'border-emerald-500 bg-emerald-50' : 'border-slate-200 bg-white'}`}
                     >
                       <div className="flex items-center justify-between">
-                        <strong className="text-lg text-slate-950 dark:text-white">{category.name}</strong>
+                        <strong className="text-lg text-slate-950 dark:text-slate-950">{category.name}</strong>
                         <span className="text-2xl">{category.icon}</span>
                       </div>
                       <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">Priority routing for {category.name.toLowerCase()} notices.</p>
@@ -845,9 +845,9 @@ export default function DashboardPage() {
               <SectionBlock title="Department permissions" subtitle="Departments">
                 <div className="grid gap-4 md:grid-cols-2">
                   {departments.map((department) => (
-                    <article key={department.id} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-950">
+                    <article key={department.id} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950">
                       <div className="flex items-center justify-between">
-                        <strong className="text-lg text-slate-950 dark:text-white">{department.name}</strong>
+                        <strong className="text-lg text-slate-950 dark:text-slate-950">{department.name}</strong>
                         <span className="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-700">{department.lead}</span>
                       </div>
                     </article>
@@ -857,9 +857,9 @@ export default function DashboardPage() {
             )}
             {section === 'users' && (
               <SectionBlock title="User management" subtitle="Users">
-                <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft dark:border-slate-800 dark:bg-slate-950">
+                <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950">
                   <table className="min-w-full text-left text-sm">
-                    <thead className="bg-slate-50 text-slate-500 dark:bg-slate-900 dark:text-slate-400">
+                    <thead className="bg-slate-50 text-slate-500 dark:bg-white dark:text-slate-400">
                       <tr>
                         <th className="px-4 py-3">Name</th>
                         <th className="px-4 py-3">Role</th>
@@ -867,8 +867,8 @@ export default function DashboardPage() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="border-t border-slate-200 dark:border-slate-800"><td className="px-4 py-3">Aarav Kumar</td><td className="px-4 py-3">Student</td><td className="px-4 py-3">Active</td></tr>
-                      <tr className="border-t border-slate-200 dark:border-slate-800"><td className="px-4 py-3">Dr. Nisha Rao</td><td className="px-4 py-3">Admin</td><td className="px-4 py-3">Verified</td></tr>
+                      <tr className="border-t border-slate-200 dark:border-emerald-600"><td className="px-4 py-3">Aarav Kumar</td><td className="px-4 py-3">Student</td><td className="px-4 py-3">Active</td></tr>
+                      <tr className="border-t border-slate-200 dark:border-emerald-600"><td className="px-4 py-3">Dr. Nisha Rao</td><td className="px-4 py-3">Admin</td><td className="px-4 py-3">Verified</td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -886,15 +886,15 @@ export default function DashboardPage() {
             {section === 'settings' && (
               <SectionBlock title="Admin settings" subtitle="Settings">
                 <div className="grid gap-4 md:grid-cols-2">
-                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-950">
-                    <h4 className="text-lg font-bold text-slate-950 dark:text-white">Admin profile settings</h4>
+                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950">
+                    <h4 className="text-lg font-bold text-slate-950 dark:text-slate-950">Admin profile settings</h4>
                     <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Update admin image, name, email, designation, and department.</p>
                     <form className="mt-4 grid gap-3" onSubmit={handleAdminSettingsSubmit}>
-                      <input name="avatarUrl" value={adminSettingsForm.avatarUrl} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Profile image URL" />
-                      <input name="fullName" value={adminSettingsForm.fullName} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Name" />
-                      <input name="email" value={adminSettingsForm.email} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Email" />
-                      <input name="designation" value={adminSettingsForm.designation} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Designation" />
-                      <select name="department" value={adminSettingsForm.department} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+                      <input name="avatarUrl" value={adminSettingsForm.avatarUrl} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Profile image URL" />
+                      <input name="fullName" value={adminSettingsForm.fullName} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Name" />
+                      <input name="email" value={adminSettingsForm.email} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Email" />
+                      <input name="designation" value={adminSettingsForm.designation} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Designation" />
+                      <select name="department" value={adminSettingsForm.department} onChange={handleAdminSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950">
                         <option value="">Select department</option>
                         {departmentOptions.map((department) => <option key={department.id} value={department.name}>{department.name}</option>)}
                       </select>
@@ -904,15 +904,15 @@ export default function DashboardPage() {
                     </form>
                   </article>
 
-                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-950 md:col-span-1">
-                    <h4 className="text-lg font-bold text-slate-950 dark:text-white">College settings</h4>
+                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-1">
+                    <h4 className="text-lg font-bold text-slate-950 dark:text-slate-950">College settings</h4>
                     <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Update college name, logo, address, website, and contact details.</p>
                     <form className="mt-4 grid gap-3" onSubmit={handleCollegeSettingsSubmit}>
-                      <input name="collegeName" value={collegeForm.collegeName} onChange={handleCollegeSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="College name" />
-                      <input name="logoUrl" value={collegeForm.logoUrl} onChange={handleCollegeSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="College logo URL" />
-                      <textarea name="address" value={collegeForm.address} onChange={handleCollegeSettingsChange} rows="3" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Address" />
-                      <input name="website" value={collegeForm.website} onChange={handleCollegeSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Website" />
-                      <textarea name="contactDetails" value={collegeForm.contactDetails} onChange={handleCollegeSettingsChange} rows="3" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Contact details" />
+                      <input name="collegeName" value={collegeForm.collegeName} onChange={handleCollegeSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="College name" />
+                      <input name="logoUrl" value={collegeForm.logoUrl} onChange={handleCollegeSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="College logo URL" />
+                      <textarea name="address" value={collegeForm.address} onChange={handleCollegeSettingsChange} rows="3" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Address" />
+                      <input name="website" value={collegeForm.website} onChange={handleCollegeSettingsChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Website" />
+                      <textarea name="contactDetails" value={collegeForm.contactDetails} onChange={handleCollegeSettingsChange} rows="3" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Contact details" />
                       {collegeSettingsError && <p className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">{collegeSettingsError}</p>}
                       {collegeSettingsMessage && <p className="rounded-2xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-700 dark:border-emerald-900/40 dark:bg-emerald-950/40 dark:text-emerald-200">{collegeSettingsMessage}</p>}
                       <button type="submit" disabled={savingCollegeSettings} className="w-fit rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60">{savingCollegeSettings ? 'Saving...' : 'Save college settings'}</button>
@@ -967,7 +967,7 @@ export default function DashboardPage() {
                                   event.stopPropagation()
                                   toggleSaveNotice(notice.id)
                                 }}
-                                className={`rounded-xl px-3 py-2 text-xs font-semibold ${savedNoticeSet.has(notice.id) ? 'bg-emerald-600 text-white' : 'border border-slate-300 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'}`}
+                                className={`rounded-xl px-3 py-2 text-xs font-semibold ${savedNoticeSet.has(notice.id) ? 'bg-emerald-600 text-white' : 'border border-slate-300 bg-white text-slate-700 dark:border-emerald-600 dark:bg-white dark:text-slate-950'}`}
                               >
                                 {savedNoticeSet.has(notice.id) ? 'Saved' : 'Save'}
                               </button>
@@ -995,7 +995,7 @@ export default function DashboardPage() {
                                   event.stopPropagation()
                                   toggleSaveNotice(notice.id)
                                 }}
-                                className={`rounded-xl px-3 py-2 text-xs font-semibold ${savedNoticeSet.has(notice.id) ? 'bg-emerald-600 text-white' : 'border border-slate-300 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200'}`}
+                                className={`rounded-xl px-3 py-2 text-xs font-semibold ${savedNoticeSet.has(notice.id) ? 'bg-emerald-600 text-white' : 'border border-slate-300 bg-white text-slate-700 dark:border-emerald-600 dark:bg-white dark:text-slate-950'}`}
                               >
                                 {savedNoticeSet.has(notice.id) ? 'Saved' : 'Save'}
                               </button>
@@ -1044,8 +1044,8 @@ export default function DashboardPage() {
               <SectionBlock title="Notifications" subtitle="Alerts">
                 <div className="space-y-3">
                   {notifications.map((item) => (
-                    <article key={item.id} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-950">
-                      <strong className="block text-slate-950 dark:text-white">{item.title}</strong>
+                    <article key={item.id} className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950">
+                      <strong className="block text-slate-950 dark:text-slate-950">{item.title}</strong>
                       <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{item.channel} · {item.time}</p>
                     </article>
                   ))}
@@ -1068,7 +1068,7 @@ export default function DashboardPage() {
                               event.stopPropagation()
                               toggleSaveNotice(notice.id)
                             }}
-                            className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
+                            className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 dark:border-emerald-600 dark:bg-white dark:text-slate-950"
                           >
                             Remove
                           </button>
@@ -1091,21 +1091,21 @@ export default function DashboardPage() {
             {section === 'profile' && (
               <SectionBlock title="Profile" subtitle="Account">
                 <div className="grid gap-4 md:grid-cols-[280px_minmax(0,1fr)]">
-                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-950">
-                    <strong className="block text-2xl text-slate-950 dark:text-white">{user.fullName}</strong>
+                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950">
+                    <strong className="block text-2xl text-slate-950 dark:text-slate-950">{user.fullName}</strong>
                     <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{user.email}</p>
                     <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{user.collegeName}</p>
                   </article>
-                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-950">
+                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950">
                     <div className="flex items-center justify-between gap-3">
                       <div>
-                        <h4 className="text-lg font-bold text-slate-950 dark:text-white">Edit profile</h4>
+                        <h4 className="text-lg font-bold text-slate-950 dark:text-slate-950">Edit profile</h4>
                         <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Update your details and save them to the account profile.</p>
                       </div>
                       <button
                         type="button"
                         onClick={() => setStudentProfileEditing((current) => !current)}
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-lg font-bold text-slate-700 transition hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-lg font-bold text-slate-700 transition hover:bg-slate-100 dark:border-emerald-600 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-800"
                         aria-label="Edit student profile"
                         title="Edit profile"
                       >
@@ -1115,23 +1115,23 @@ export default function DashboardPage() {
 
                     {studentProfileEditing && (
                       <form className="mt-4 grid gap-3 md:grid-cols-2" onSubmit={handleProfileSubmit}>
-                        <input name="fullName" value={profileForm.fullName} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900 md:col-span-2" placeholder="Full name" />
-                        <input name="email" value={profileForm.email} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900 md:col-span-2" placeholder="Email" />
-                        <select name="collegeName" value={profileForm.collegeName} onChange={handleCollegeProfileSelect} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900 md:col-span-2">
+                        <input name="fullName" value={profileForm.fullName} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-2" placeholder="Full name" />
+                        <input name="email" value={profileForm.email} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-2" placeholder="Email" />
+                        <select name="collegeName" value={profileForm.collegeName} onChange={handleCollegeProfileSelect} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-2">
                           <option value="">Select college</option>
                           {colleges.map((college) => <option key={college.id} value={college.name}>{college.name}</option>)}
                         </select>
-                        <input name="collegeCode" value={profileForm.collegeCode} readOnly className="rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 dark:border-slate-800 dark:bg-slate-900/60 md:col-span-2" placeholder="College code" />
-                        <select name="branch" value={profileForm.branch} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+                        <input name="collegeCode" value={profileForm.collegeCode} readOnly className="rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 dark:border-emerald-600 dark:bg-white/60 dark:text-slate-950 md:col-span-2" placeholder="College code" />
+                        <select name="branch" value={profileForm.branch} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950">
                           <option value="">Select department</option>
                           {departmentOptions.map((department) => <option key={department.id} value={department.name}>{department.name}</option>)}
                         </select>
-                        <input name="year" value={profileForm.year} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Year" />
-                        <input name="rollNumber" value={profileForm.rollNumber} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900 md:col-span-2" placeholder="Roll number" />
-                        <input name="phoneNumber" value={profileForm.phoneNumber} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900 md:col-span-2" placeholder="Phone number" />
-                        <input name="website" value={profileForm.website} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900 md:col-span-2" placeholder="Website" />
-                        <textarea name="address" value={profileForm.address} onChange={handleProfileChange} rows="3" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900 md:col-span-2" placeholder="Address" />
-                        <textarea name="interests" value={profileForm.interests} onChange={handleProfileChange} rows="3" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900 md:col-span-2" placeholder="Interests" />
+                        <input name="year" value={profileForm.year} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Year" />
+                        <input name="rollNumber" value={profileForm.rollNumber} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-2" placeholder="Roll number" />
+                        <input name="phoneNumber" value={profileForm.phoneNumber} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-2" placeholder="Phone number" />
+                        <input name="website" value={profileForm.website} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-2" placeholder="Website" />
+                        <textarea name="address" value={profileForm.address} onChange={handleProfileChange} rows="3" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-2" placeholder="Address" />
+                        <textarea name="interests" value={profileForm.interests} onChange={handleProfileChange} rows="3" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-2" placeholder="Interests" />
 
                         {profileError && <p className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700 md:col-span-2">{profileError}</p>}
                         {profileMessage && <p className="rounded-2xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-700 md:col-span-2 dark:border-emerald-900/40 dark:bg-emerald-950/40 dark:text-emerald-200">{profileMessage}</p>}
@@ -1148,33 +1148,33 @@ export default function DashboardPage() {
             {section === 'settings' && (
               <SectionBlock title="Student settings" subtitle="Preferences">
                 <div className="grid gap-4 md:grid-cols-2">
-                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-950">
-                    <h4 className="text-lg font-bold text-slate-950 dark:text-white">Update email</h4>
+                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950">
+                    <h4 className="text-lg font-bold text-slate-950 dark:text-slate-950">Update email</h4>
                     <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Change the email address tied to your account.</p>
                     <form className="mt-4 grid gap-3" onSubmit={handleProfileSubmit}>
-                      <input name="email" value={profileForm.email} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Email" />
+                      <input name="email" value={profileForm.email} onChange={handleProfileChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Email" />
                       <button type="submit" disabled={savingProfile} className="w-fit rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60">{savingProfile ? 'Saving...' : 'Update email'}</button>
                     </form>
                   </article>
 
-                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-950">
-                    <h4 className="text-lg font-bold text-slate-950 dark:text-white">Change password</h4>
+                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950">
+                    <h4 className="text-lg font-bold text-slate-950 dark:text-slate-950">Change password</h4>
                     <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Use your current password and choose a new one.</p>
                     <form className="mt-4 grid gap-3" onSubmit={handlePasswordSubmit}>
-                      <input type="password" name="currentPassword" value={passwordForm.currentPassword} onChange={handlePasswordChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Current password" />
-                      <input type="password" name="newPassword" value={passwordForm.newPassword} onChange={handlePasswordChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="New password" />
-                      <input type="password" name="confirmPassword" value={passwordForm.confirmPassword} onChange={handlePasswordChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Confirm new password" />
+                      <input type="password" name="currentPassword" value={passwordForm.currentPassword} onChange={handlePasswordChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Current password" />
+                      <input type="password" name="newPassword" value={passwordForm.newPassword} onChange={handlePasswordChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="New password" />
+                      <input type="password" name="confirmPassword" value={passwordForm.confirmPassword} onChange={handlePasswordChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Confirm new password" />
                       {securityError && <p className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">{securityError}</p>}
                       {securityMessage && <p className="rounded-2xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-700 dark:border-emerald-900/40 dark:bg-emerald-950/40 dark:text-emerald-200">{securityMessage}</p>}
                       <button type="submit" disabled={savingSecurity} className="w-fit rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60">{savingSecurity ? 'Saving...' : 'Change password'}</button>
                     </form>
                   </article>
 
-                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-slate-800 dark:bg-slate-950 md:col-span-2">
-                    <h4 className="text-lg font-bold text-slate-950 dark:text-white">Account actions</h4>
+                  <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-soft dark:border-emerald-600 dark:bg-white dark:text-slate-950 md:col-span-2">
+                    <h4 className="text-lg font-bold text-slate-950 dark:text-slate-950">Account actions</h4>
                     <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Logout any time or delete your account permanently.</p>
                     <div className="mt-4 flex flex-wrap gap-3">
-                      <button type="button" onClick={() => { logout(); navigate('/', { replace: true }) }} className="rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">Logout</button>
+                      <button type="button" onClick={() => { logout(); navigate('/', { replace: true }) }} className="rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-700 dark:border-emerald-600 dark:bg-white dark:text-slate-950">Logout</button>
                       <button type="button" onClick={handleDeleteAccount} disabled={deletingAccount} className="rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60">{deletingAccount ? 'Deleting...' : 'Delete account'}</button>
                     </div>
                   </article>
@@ -1196,23 +1196,23 @@ export default function DashboardPage() {
           role="presentation"
         >
           <article
-            className="relative w-full max-w-3xl rounded-[2rem] border border-white/20 bg-white p-6 shadow-2xl dark:border-slate-800 dark:bg-slate-950"
+            className="relative w-full max-w-3xl rounded-[2rem] border border-white/20 bg-white p-6 shadow-2xl dark:border-emerald-600 dark:bg-white dark:text-slate-950"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="absolute right-4 top-4 flex items-center gap-2">
               {isAdmin && !editingNotice && (
                 <>
-                  <button type="button" onClick={startEditNotice} className="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">Edit</button>
+                  <button type="button" onClick={startEditNotice} className="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 dark:border-emerald-600 dark:bg-white dark:text-slate-950">Edit</button>
                   <button type="button" onClick={handleDeleteNotice} className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-100">Delete</button>
                 </>
               )}
               {editingNotice && (
-                <button type="button" onClick={cancelEdit} className="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">Cancel</button>
+                <button type="button" onClick={cancelEdit} className="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 dark:border-emerald-600 dark:bg-white dark:text-slate-950">Cancel</button>
               )}
               <button
                 type="button"
                 onClick={closeNotice}
-                className="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+                className="rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 dark:border-emerald-600 dark:bg-white dark:text-slate-950"
               >
                 Close
               </button>
@@ -1221,15 +1221,15 @@ export default function DashboardPage() {
             <div className="pr-16">
               {editingNotice ? (
                 <form className="grid gap-3" onSubmit={handleEditSubmit}>
-                  <input name="title" value={editForm.title || ''} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" placeholder="Title" />
-                  <textarea name="description" value={editForm.description || ''} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" rows="4" placeholder="Description" />
-                  <select name="category" value={editForm.category} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+                  <input name="title" value={editForm.title || ''} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" placeholder="Title" />
+                  <textarea name="description" value={editForm.description || ''} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" rows="4" placeholder="Description" />
+                  <select name="category" value={editForm.category} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950">
                     {categories.map((category) => <option key={category.id} value={category.name}>{category.name}</option>)}
                   </select>
-                  <select name="department" value={editForm.department} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+                  <select name="department" value={editForm.department} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950">
                     {departments.map((department) => <option key={department.id} value={department.name}>{department.name}</option>)}
                   </select>
-                  <select name="priority" value={editForm.priority} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900">
+                  <select name="priority" value={editForm.priority} onChange={handleEditChange} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950">
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
                     <option value="high">High</option>
@@ -1237,7 +1237,7 @@ export default function DashboardPage() {
                   </select>
                   <label className="grid gap-2">
                     <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">Deadline</span>
-                    <input name="expiresAt" value={editForm.expiresAt || ''} onChange={handleEditChange} type="datetime-local" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-800 dark:bg-slate-900" />
+                    <input name="expiresAt" value={editForm.expiresAt || ''} onChange={handleEditChange} type="datetime-local" className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 dark:border-emerald-600 dark:bg-white dark:text-slate-950" />
                   </label>
                   <input type="file" multiple onChange={handleEditFilesChange} className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-600" />
                   <div className="flex gap-2">
@@ -1252,21 +1252,21 @@ export default function DashboardPage() {
                     <span>{selectedNotice.department}</span>
                     <span>{selectedNotice.priority}</span>
                   </div>
-                  <h3 className="mt-4 text-2xl font-bold text-slate-950 dark:text-white">{selectedNotice.title}</h3>
+                  <h3 className="mt-4 text-2xl font-bold text-slate-950 dark:text-slate-950">{selectedNotice.title}</h3>
                   <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">{selectedNotice.description}</p>
 
                   <div className="mt-6 grid gap-3 md:grid-cols-2">
                     <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Posted by</p>
-                      <p className="mt-1 font-semibold text-slate-950 dark:text-white">{selectedNotice.postedBy || 'Admin'}</p>
+                      <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.postedBy || 'Admin'}</p>
                     </div>
                     <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Sent from</p>
-                      <p className="mt-1 font-semibold text-slate-950 dark:text-white">{selectedNotice.collegeName || 'Unknown'}</p>
+                      <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.collegeName || 'Unknown'}</p>
                     </div>
                     <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Deadline</p>
-                      <p className="mt-1 font-semibold text-slate-950 dark:text-white">
+                      <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">
                         {selectedNotice.expiresAt || selectedNotice.expiryDate || selectedNotice.deadline
                           ? new Date(selectedNotice.expiresAt || selectedNotice.expiryDate || selectedNotice.deadline).toLocaleString()
                           : 'No deadline'}
@@ -1274,15 +1274,15 @@ export default function DashboardPage() {
                     </div>
                     <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Posted at</p>
-                      <p className="mt-1 font-semibold text-slate-950 dark:text-white">{selectedNotice.timestamp ? new Date(selectedNotice.timestamp).toLocaleString() : 'Just now'}</p>
+                      <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.timestamp ? new Date(selectedNotice.timestamp).toLocaleString() : 'Just now'}</p>
                     </div>
                     <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Target branch</p>
-                      <p className="mt-1 font-semibold text-slate-950 dark:text-white">{selectedNotice.targetBranch || 'ALL'}</p>
+                      <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.targetBranch || 'ALL'}</p>
                     </div>
                     <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">AI score</p>
-                      <p className="mt-1 font-semibold text-slate-950 dark:text-white">{selectedNotice.trendingScore ?? selectedNotice.score ?? 0}</p>
+                      <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.trendingScore ?? selectedNotice.score ?? 0}</p>
                     </div>
                   </div>
 
