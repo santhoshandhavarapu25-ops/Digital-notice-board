@@ -38,7 +38,12 @@ async function bootstrap() {
 
   setIO(io)
 
-  app.use(cors({ origin: process.env.CLIENT_URL || '*' }))
+  app.use(cors({
+    origin: [
+      'http://localhost:5173',
+      'https://digital-notice-board-pearl.vercel.app'
+    ]
+  }))
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
   app.use(morgan('dev'))
