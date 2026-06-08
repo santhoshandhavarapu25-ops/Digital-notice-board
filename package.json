@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "dev": "npm --prefix server run dev",
+    "start": "npm --prefix server start",
+    "client:dev": "npm --prefix client run dev"
+  },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
     "axios": "^1.16.1",

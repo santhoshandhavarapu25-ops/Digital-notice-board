@@ -95,19 +95,19 @@ export default function LandingPage() {
                 <ul className="space-y-4 text-slate-200">
                   <li className="flex items-start gap-3">
                     <span className="mt-1 text-amber-400">📍</span>
-                    <span>Corporate Office: 119 A, DLF Star Tower, Sector 30, Gurugram, Haryana 122001</span>
+                    <span>Vardhaman College of Engineering</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 text-amber-400">📍</span>
-                    <span>Experience Center: 272, Part 6, Sector 37, Gurugram, Haryana, 122004</span>
+                    <span>7835+R26, Narkhuda, Nagarguda - Shamshabad Rd, Kacharam, Telangana 501218</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-amber-400">✉️</span>
-                    <a href="mailto:business@sparsatv.in" className="text-slate-100">business@sparsatv.in</a>
+                    <a href="mailto:asanthosh2503@gmail.com" className="text-slate-100">diginotice@gmail.com</a>
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="text-amber-400">📞</span>
-                    <span className="text-slate-100">08043063109</span>
+                    <span className="text-slate-100">9030280861</span>
                   </li>
                 </ul>
               </div>

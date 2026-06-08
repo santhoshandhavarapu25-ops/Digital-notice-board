@@ -1191,7 +1191,7 @@ export default function DashboardPage() {
 
       {selectedNotice && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 px-4 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white/30 px-4 backdrop-blur-md"
           onClick={closeNotice}
           role="presentation"
         >
@@ -1256,15 +1256,15 @@ export default function DashboardPage() {
                   <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">{selectedNotice.description}</p>
 
                   <div className="mt-6 grid gap-3 md:grid-cols-2">
-                    <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
+                    <div className="rounded-2xl bg-emerald-50 p-4 dark:bg-white">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Posted by</p>
                       <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.postedBy || 'Admin'}</p>
                     </div>
-                    <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
+                    <div className="rounded-2xl bg-emerald-50 p-4 dark:bg-white">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Sent from</p>
                       <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.collegeName || 'Unknown'}</p>
                     </div>
-                    <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
+                    <div className="rounded-2xl bg-emerald-50 p-4 dark:bg-white">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Deadline</p>
                       <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">
                         {selectedNotice.expiresAt || selectedNotice.expiryDate || selectedNotice.deadline
@@ -1272,15 +1272,15 @@ export default function DashboardPage() {
                           : 'No deadline'}
                       </p>
                     </div>
-                    <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
+                    <div className="rounded-2xl bg-emerald-50 p-4 dark:bg-white">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Posted at</p>
                       <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.timestamp ? new Date(selectedNotice.timestamp).toLocaleString() : 'Just now'}</p>
                     </div>
-                    <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
+                    <div className="rounded-2xl bg-emerald-50 p-4 dark:bg-white">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Target branch</p>
                       <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.targetBranch || 'ALL'}</p>
                     </div>
-                    <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-900">
+                    <div className="rounded-2xl bg-emerald-50 p-4 dark:bg-white">
                       <p className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">AI score</p>
                       <p className="mt-1 font-semibold text-slate-950 dark:text-slate-950">{selectedNotice.trendingScore ?? selectedNotice.score ?? 0}</p>
                     </div>
@@ -1289,7 +1289,7 @@ export default function DashboardPage() {
                   {selectedNotice.tags?.length > 0 && (
                     <div className="mt-6 flex flex-wrap gap-2">
                       {selectedNotice.tags.map((tag) => (
-                        <span key={tag} className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300">#{tag}</span>
+                        <span key={tag} className="rounded-full bg-emerald-50 px-3 py-1 text-xs text-emerald-700 dark:bg-white dark:text-emerald-700">#{tag}</span>
                       ))}
                     </div>
                   )}

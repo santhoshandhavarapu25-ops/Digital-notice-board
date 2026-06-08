@@ -12,6 +12,7 @@ async function seedDatabase() {
 
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
+    connectionTimeoutMillis: 5000,
     ssl: process.env.PGSSL === 'true' ? { rejectUnauthorized: false } : undefined,
   })
 
