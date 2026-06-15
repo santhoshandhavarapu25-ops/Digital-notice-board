@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const path = require('path')
 const http = require('http')
 const { Server } = require('socket.io')
-require('dotenv').config({ path: path.join(__dirname, '.env') })
+require('dotenv').config({ path: path.join(__dirname, '.env'), override: true })
 
 // Security: require a JWT secret to be set. Fail fast to avoid accidental
 // deployments with the default or missing secret.

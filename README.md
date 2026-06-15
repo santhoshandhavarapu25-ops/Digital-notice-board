@@ -34,7 +34,7 @@ npm install
 Create a `.env` file in `server/` if you want to connect to PostgreSQL:
 
 ```env
-PORT=5001
+PORT=5432
 JWT_SECRET=dnb-secret
 DATABASE_URL=postgresql://user:password@localhost:5432/digital_notices_board
 CLIENT_URL=http://localhost:5173

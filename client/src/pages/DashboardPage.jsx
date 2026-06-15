@@ -229,7 +229,7 @@ export default function DashboardPage() {
 
     loadNotices()
     const intervalId = window.setInterval(loadNotices, 10000)
-    const socketUrl = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api').replace(/\/api\/?$/, '')
+    const socketUrl = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:5432/api').replace(/\/api\/?$/, '')
     const socket = io(socketUrl, {
       transports: ['websocket', 'polling'],
       withCredentials: true,
