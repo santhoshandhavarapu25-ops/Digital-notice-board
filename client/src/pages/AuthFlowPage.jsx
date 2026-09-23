@@ -6,10 +6,76 @@ import api from '../services/api'
 
 function Field({ label, children }) {
   return (
-    <label className="grid gap-2">
+    <label className="grid min-w-0 gap-2">
       <span className="text-sm font-semibold text-[#4f496d]">{label}</span>
       {children}
     </label>
+  )
+}
+
+function CollegeDropdown({ colleges, value, onChange }) {
+  const [open, setOpen] = useState(false)
+  const [search, setSearch] = useState('')
+
+  const filteredColleges = colleges.filter((college) =>
+    college.name.toLowerCase().includes(search.toLowerCase())
+  )
+
+  const handleSelect = (college) => {
+    onChange(college.name)
+    setOpen(false)
+    setSearch('')
+  }
+
+  return (
+    <div className="relative w-full min-w-0">
+      <button
+        type="button"
+        onClick={() => setOpen((current) => !current)}
+        className="flex w-full min-w-0 items-center justify-between rounded-[1.25rem] border border-[#dfe3ee] bg-white px-4 py-3 text-left text-slate-950 shadow-sm outline-none transition hover:border-slate-300 focus:border-[#0f766e] focus:ring-4 focus:ring-[#0f766e]/10"
+      >
+        <span className={`min-w-0 truncate ${value ? 'text-slate-950' : 'text-slate-400'}`}>
+          {value || 'Select college'}
+        </span>
+        <span className="ml-3 shrink-0 text-slate-400">
+          {open ? '▲' : '▼'}
+        </span>
+      </button>
+
+      {open && (
+        <div className="absolute left-0 top-full z-50 mt-2 w-full min-w-0 overflow-hidden rounded-[1.25rem] border border-[#dfe3ee] bg-white shadow-xl">
+          <div className="border-b border-slate-100 p-2">
+            <input
+              type="text"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Search college..."
+              autoFocus
+              className="w-full rounded-xl bg-slate-50 px-3 py-2.5 text-sm text-slate-900 outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-[#0f766e]/10"
+            />
+          </div>
+
+          <div className="max-h-60 overflow-y-auto p-1">
+            {filteredColleges.length > 0 ? (
+              filteredColleges.map((college) => (
+                <button
+                  key={college.id}
+                  type="button"
+                  onClick={() => handleSelect(college)}
+                  className="w-full rounded-xl px-3 py-2.5 text-left text-sm text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-700"
+                >
+                  {college.name}
+                </button>
+              ))
+            ) : (
+              <p className="px-3 py-4 text-center text-sm text-slate-400">
+                No colleges found
+              </p>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -90,7 +156,10 @@ export default function AuthFlowPage({ role, mode }) {
   }, [])
 
   function handleCollegeSelect(event) {
-    const selectedCollegeName = event.target.value
+    handleCollegeSelectByName(event.target.value)
+  }
+
+  function handleCollegeSelectByName(selectedCollegeName) {
     const selectedCollege = colleges.find((college) => college.name === selectedCollegeName)
 
     setForm((current) => ({
@@ -205,26 +274,27 @@ export default function AuthFlowPage({ role, mode }) {
                 <Field label="Email"><input name="email" value={form.email} onChange={handleChange} className="rounded-[1.25rem] border border-[#dfe3ee] bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#0f766e] focus:ring-4 focus:ring-[#0f766e]/10" /></Field>
                 <Field label="Password"><input type="password" name="password" value={form.password} onChange={handleChange} className="rounded-[1.25rem] border border-[#dfe3ee] bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#0f766e] focus:ring-4 focus:ring-[#0f766e]/10" /></Field>
                 <Field label="College Name">
-                  <select
-                    name="collegeName"
+                  <CollegeDropdown
+                    colleges={colleges}
                     value={form.collegeName}
-                    onChange={handleCollegeSelect}
-                    className="rounded-[1.25rem] border border-[#dfe3ee] bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#0f766e] focus:ring-4 focus:ring-[#0f766e]/10"
-                  >
-                    <option value="">Select college</option>
-                    {colleges.map((college) => (
-                      <option key={college.id} value={college.name}>{college.name}</option>
-                    ))}
-                  </select>
+                    onChange={handleCollegeSelectByName}
+                  />
                 </Field>
-                <Field label="College Code"><input name="collegeCode" value={form.collegeCode} readOnly className="rounded-[1.25rem] border border-[#dfe3ee] bg-[#f8f7fc] px-4 py-3 text-slate-950 outline-none" /></Field>
+                <Field label="College Code">
+                  <input
+                    name="collegeCode"
+                    value={form.collegeCode}
+                    readOnly
+                    className="w-full min-w-0 rounded-[1.25rem] border border-[#dfe3ee] bg-[#f8f7fc] px-4 py-3 text-slate-950 outline-none"
+                  />
+                </Field>
                 {isRegister && (
                   <Field label="Department">
                     <select
                       name="branch"
                       value={form.branch}
                       onChange={handleChange}
-                      className="rounded-[1.25rem] border border-[#dfe3ee] bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#0f766e] focus:ring-4 focus:ring-[#0f766e]/10"
+                      className="w-full min-w-0 max-w-full rounded-[1.25rem] border border-[#dfe3ee] bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#0f766e] focus:ring-4 focus:ring-[#0f766e]/10"
                     >
                       <option value="">Select department</option>
                       {departments.map((department) => (
@@ -240,19 +310,20 @@ export default function AuthFlowPage({ role, mode }) {
             ) : (
               <>
                 <Field label="College Name">
-                  <select
-                    name="collegeName"
+                  <CollegeDropdown
+                    colleges={colleges}
                     value={form.collegeName}
-                    onChange={handleCollegeSelect}
-                    className="rounded-[1.25rem] border border-[#dfe3ee] bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#0f766e] focus:ring-4 focus:ring-[#0f766e]/10"
-                  >
-                    <option value="">Select college</option>
-                    {colleges.map((college) => (
-                      <option key={college.id} value={college.name}>{college.name}</option>
-                    ))}
-                  </select>
+                    onChange={handleCollegeSelectByName}
+                  />
                 </Field>
-                <Field label="College Code"><input name="collegeCode" value={form.collegeCode} readOnly className="rounded-[1.25rem] border border-[#dfe3ee] bg-[#f8f7fc] px-4 py-3 text-slate-950 outline-none" /></Field>
+                <Field label="College Code">
+                  <input
+                    name="collegeCode"
+                    value={form.collegeCode}
+                    readOnly
+                    className="w-full min-w-0 rounded-[1.25rem] border border-[#dfe3ee] bg-[#f8f7fc] px-4 py-3 text-slate-950 outline-none"
+                  />
+                </Field>
                 <Field label="Email"><input name="officialEmail" value={form.officialEmail} onChange={handleChange} className="rounded-[1.25rem] border border-[#dfe3ee] bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#0f766e] focus:ring-4 focus:ring-[#0f766e]/10" /></Field>
                 <Field label="Password"><input type="password" name="password" value={form.password} onChange={handleChange} className="rounded-[1.25rem] border border-[#dfe3ee] bg-white px-4 py-3 text-slate-950 outline-none transition focus:border-[#0f766e] focus:ring-4 focus:ring-[#0f766e]/10" /></Field>
               </>
